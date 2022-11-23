@@ -5,6 +5,7 @@
 ```
 CREATE TABLE queries ( 
   app String,
+  id String,
   query String,  
   label String,
   name String,
@@ -13,5 +14,5 @@ CREATE TABLE queries (
   version UInt32
 ) ENGINE = ReplacingMergeTree(version)
 PARTITION BY toYYYYMM(timestamp)
-ORDER BY (app, query, label, name, timestamp);
+ORDER BY (app, id, query, label, name, timestamp);
 ```
