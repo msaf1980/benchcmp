@@ -8,11 +8,11 @@ CREATE TABLE queries (
   id String,
   query String,  
   label String,
-  name String,
+  metric String,
   timestamp DateTime64(9),
   value Float64,
   version UInt32
 ) ENGINE = ReplacingMergeTree(version)
 PARTITION BY toYYYYMM(timestamp)
-ORDER BY (app, id, query, label, name, timestamp);
+ORDER BY (app, id, query, label, metric, timestamp);
 ```
